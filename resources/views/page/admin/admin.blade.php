@@ -15,294 +15,311 @@ Dashboard
   <div class="" style="width: 100%;">
     @switch(Auth::user()->roles->pluck('name')[0])
     @case('dokter')
-    <div class="col-xl-3 col-md-4 mb-4">
-      <div class="card border-left-warning shadow h-100 py-2">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                Jumlah Pasien telah di Periksa</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $data_sudah }}</div>
+    <div class="" style="width:100%">
+      <div class="" style="width:100%">
+        <div class="d-flex" style="width:100%">
+          <div class="col-xl-3 col-md-4 mb-4">
+            <div class="card  shadow h-100 py-2" style="border-left: 4px solid #8b89c3;">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-uppercase mb-1" style="color: #8b89c3;">
+                      Jumlah Pasien telah di Periksa</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $data_sudah }}</div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-comments fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="col-auto">
-              <i class="fas fa-comments fa-2x text-gray-300"></i>
+          </div>
+          <div class="col-xl-3 col-md-4 mb-4">
+            <div class="card  shadow h-100 py-2" style="border-left: 4px solid #8b89c3;">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-uppercase mb-1" style="color: #8b89c3;">
+                      Jumlah Pasien menunggu di Periksa</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $data_tunggu }}</div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-comments fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        <div class="d-flex gap-3 mt-3 ">
+          <div class=" flex-fill mr-3">
+            <div class="input-group mb-3" style="height: 100%;">
+              <div class="input-group-prepend">
+                <span class="input-group-text btn btn-primary text-white" id="basic-addon1"><i
+                    class="fas fa-calendar-alt"></i></span>
+              </div>
+              <input type="text" class="form-control" id="start_date" placeholder="Start Date" readonly
+                style="height: 100%;">
+            </div>
+          </div>
+          <div class="flex-fill mr-3">
+            <div class="input-group mb-3" style="height: 100%;">
+              <div class="input-group-prepend">
+                <span class="input-group-text btn btn-primary text-white" id="basic-addon1"><i
+                    class="fas fa-calendar-alt"></i></span>
+              </div>
+              <input type="text" class="form-control" id="end_date" placeholder="End Date" readonly
+                style="height: 100%;">
+            </div>
+          </div>
+          <button id="filter" class="btn mr-3 text-white" style="background-color: #a979a8;"
+            onmouseover="this.style.backgroundColor='#6c5576';"
+            onmouseout="this.style.backgroundColor='#a979a8';">Filter</button>
+          <button id="reset" class="btn btn-outline-secondary">Reset</button>
+        </div>
+      </div>
+      <div class="table-responsive mt-3">
+        <table class="table table-bordered" id="records" style="width:100%">
+          <thead>
+            <tr>
+              <th>Nama Pasien</th>
+              <th>Waktu Pendaftaran</th>
+              <th>Nomor Pendaftaran</th>
+              <th>Nama Dokter</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+        </table>
       </div>
     </div>
-    <div class="col-xl-3 col-md-4 mb-4">
-      <div class="card border-left-warning shadow h-100 py-2">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                Jumlah Pasien menunggu di Periksa</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $data_tunggu }}</div>
+    @break
+
+    @case('apoteker')
+    <div class="" style="width: 100%;">
+      <div class="" style="width: 100%;">
+        <div class="d-flex" style="width: 100%;">
+          <div class="col-xl-3 col-md-4 mb-4 ">
+            <div class="card  shadow h-100 py-2" style="border-left: 4px solid #8b89c3;">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-uppercase mb-1" style="color: #8b89c3;">
+                      Obat paling banyak terjual</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $data_banyak[0]->nama_obat }} |
+                      {{ $data_banyak[0]->total }}</div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-comments fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="col-auto">
-              <i class="fas fa-comments fa-2x text-gray-300"></i>
+          </div>
+          <div class="col-xl-3 col-md-4 mb-4">
+            <div class="card  shadow h-100 py-2" style="border-left: 4px solid #8b89c3;">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-boldx text-uppercase mb-1" style="color: #8b89c3;">
+                      Obat paling sedikit terjual</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $data_sedikit[0]->nama_obat }} |
+                      {{ $data_sedikit[0]->total }}</div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-comments fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="col-md-6 mt-3">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text btn btn-primary text-white" id="basic-addon1"><i
-              class="fas fa-calendar-alt"></i></span>
-        </div>
-        <input type="text" class="form-control" id="start_date" placeholder="Start Date" readonly>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text btn btn-primary text-white" id="basic-addon1"><i
-              class="fas fa-calendar-alt"></i></span>
-        </div>
-        <input type="text" class="form-control" id="end_date" placeholder="End Date" readonly>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <button id="filter" class="btn btn-primary">Filter</button>
-    <button id="reset" class="btn btn-warning">Reset</button>
-  </div>
-</div>
-<div class="table-responsive mt-3">
-  <table class="table table-bordered" id="records" style="width:100%">
-    <thead>
-      <tr>
-        <th>Nama Pasien</th>
-        <th>Waktu Pendaftaran</th>
-        <th>Nomor Pendaftaran</th>
-        <th>Nama Dokter</th>
-        <th>Aksi</th>
-      </tr>
-    </thead>
-  </table>
-</div>
-@break
-
-@case('apoteker')
-<div class="col-xl-3 col-md-4 mb-4">
-  <div class="card border-left-warning shadow h-100 py-2">
-    <div class="card-body">
-      <div class="row no-gutters align-items-center">
-        <div class="col mr-2">
-          <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-            Obat paling banyak terjual</div>
-          <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $data_banyak[0]->nama_obat }} |
-            {{ $data_banyak[0]->total }}</div>
-        </div>
-        <div class="col-auto">
-          <i class="fas fa-comments fa-2x text-gray-300"></i>
+        <div class="d-flex gap-3 mt-3 ">
+          <div class=" flex-fill mr-3">
+            <div class="input-group mb-3" style="height: 100%;">
+              <div class="input-group-prepend">
+                <span class="input-group-text btn btn-primary text-white" id="basic-addon1"><i
+                    class="fas fa-calendar-alt"></i></span>
+              </div>
+              <input type="text" class="form-control" id="start_date" placeholder="Start Date" readonly
+                style="height: 100%;">
+            </div>
+          </div>
+          <div class="flex-fill mr-3">
+            <div class="input-group mb-3" style="height: 100%;">
+              <div class="input-group-prepend">
+                <span class="input-group-text btn btn-primary text-white" id="basic-addon1"><i
+                    class="fas fa-calendar-alt"></i></span>
+              </div>
+              <input type="text" class="form-control" id="end_date" placeholder="End Date" readonly
+                style="height: 100%;">
+            </div>
+          </div>
+          <button id="filter" class="btn mr-3 text-white" style="background-color: #a979a8;"
+            onmouseover="this.style.backgroundColor='#6c5576';"
+            onmouseout="this.style.backgroundColor='#a979a8';">Filter</button>
+          <button id="reset" class="btn btn-outline-secondary">Reset</button>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-<div class="col-xl-3 col-md-4 mb-4">
-  <div class="card border-left-warning shadow h-100 py-2">
-    <div class="card-body">
-      <div class="row no-gutters align-items-center">
-        <div class="col mr-2">
-          <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-            Obat paling sedikit terjual</div>
-          <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $data_sedikit[0]->nama_obat }} |
-            {{ $data_sedikit[0]->total }}</div>
-        </div>
-        <div class="col-auto">
-          <i class="fas fa-comments fa-2x text-gray-300"></i>
-        </div>
+      <div class="table-responsive mt-3">
+        <table class="table table-bordered" id="penjualan" style="width:100%">
+          <thead>
+            <tr>
+              <th>ID Transaksi</th>
+              <th>Tanggal Penjualan</th>
+              <th>Total Harga</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="mt-5" id="chart"></div>
+      @break
+
+      @case('kasir')
+      <div id="chart"></div>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tr>
+            <th>ID Transaksi</th>
+            <th>Tanggal Penjualan</th>
+            <th>Total Harga</th>
+            <th class="text-center">Aksi</th>
+          </tr>
+          @forelse ($data_penjualan as $row)
+          <tr>
+            <th>{{ $row->id_transaksi }}</th>
+            <th>{{ $row->tgl_penjualan }}</th>
+            <th>{{ $row->total_harga }}</th>
+            <th class="text-center"><a href="{{ route('penjualan.show', $row->id) }}" class="btn btn-primary">Detail</a>
+            </th>
+          </tr>
+          @empty
+          <td colspan="4" class="text-center">Data Masih Kosong!</td>
+          @endforelse
+        </table>
       </div>
     </div>
-  </div>
-</div>
-<div class="col-md-6 mt-3">
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text btn btn-primary text-white" id="basic-addon1"><i
-          class="fas fa-calendar-alt"></i></span>
+    @break
+
+    @case('admin')
+
+    <head>
+      <style>
+      .menu-buttons .btn.active {
+        background-color: #8b89c3;
+        border-radius: 0%;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        /* Active color */
+        color: #fff;
+      }
+
+      .menu-buttons {
+        border-bottom: 1px solid #8b89c3;
+        border-radius: 0%;
+        outline: none;
+      }
+      </style>
+    </head>
+    <div class="menu-buttons mb-5">
+      <div id="showPendaftaran" class="btn  active">Tabel Pendaftaran</div>
+      <div id="showPenjualan" class="btn ">Tabel Penjualan</div>
     </div>
-    <input type="text" class="form-control" id="start_date_penjualan" placeholder="Start Date" readonly>
-  </div>
-</div>
-<div class="col-md-6">
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text btn btn-primary text-white" id="basic-addon1"><i
-          class="fas fa-calendar-alt"></i></span>
-    </div>
-    <input type="text" class="form-control" id="end_date_penjualan" placeholder="End Date" readonly>
-  </div>
-</div>
-</div>
-<div class="col-md-6">
-  <button id="filter_penjualan" class="btn btn-primary">Filter</button>
-  <button id="reset_penjualan" class="btn btn-warning">Reset</button>
-</div>
-</div>
-<div class="table-responsive mt-3">
-  <table class="table table-bordered" id="penjualan" style="width:100%">
-    <thead>
-      <tr>
-        <th>ID Transaksi</th>
-        <th>Tanggal Penjualan</th>
-        <th>Total Harga</th>
-        <th>Aksi</th>
-      </tr>
-    </thead>
-  </table>
-</div>
-<div class="mt-5" id="chart"></div>
-@break
-
-@case('kasir')
-<div id="chart"></div>
-<div class="table-responsive">
-  <table class="table table-bordered">
-    <tr>
-      <th>ID Transaksi</th>
-      <th>Tanggal Penjualan</th>
-      <th>Total Harga</th>
-      <th class="text-center">Aksi</th>
-    </tr>
-    @forelse ($data_penjualan as $row)
-    <tr>
-      <th>{{ $row->id_transaksi }}</th>
-      <th>{{ $row->tgl_penjualan }}</th>
-      <th>{{ $row->total_harga }}</th>
-      <th class="text-center"><a href="{{ route('penjualan.show', $row->id) }}" class="btn btn-primary">Detail</a></th>
-    </tr>
-    @empty
-    <td colspan="4" class="text-center">Data Masih Kosong!</td>
-    @endforelse
-  </table>
-</div>
-@break
-
-@case('admin')
-
-<head>
-  <style>
-  .menu-buttons .btn.active {
-    background-color: #8b89c3;
-    border-radius: 0%;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    /* Active color */
-    color: #fff;
-  }
-
-  .menu-buttons {
-    border-bottom: 1px solid #8b89c3;
-    border-radius: 0%;
-    outline: none;
-  }
-  </style>
-</head>
-<div class="menu-buttons mb-5">
-  <div id="showPendaftaran" class="btn  active">Tabel Pendaftaran</div>
-  <div id="showPenjualan" class="btn ">Tabel Penjualan</div>
-</div>
-<div id="daftar" class="">
-  <!-- <h1 class="mt-4">Tabel Pendaftaran <b class="text-success" style="font-size: 35px">(Bagi Yang Telah Melakukan
+    <div id="daftar" class="">
+      <!-- <h1 class="mt-4">Tabel Pendaftaran <b class="text-success" style="font-size: 35px">(Bagi Yang Telah Melakukan
       Pembayaran)</b></h1> -->
-  <div class="d-flex gap-3 mt-3 ">
-    <div class=" flex-fill mr-3">
-      <div class="input-group mb-3" style="height: 100%;">
-        <div class="input-group-prepend">
-          <span class="input-group-text btn btn-primary text-white" id="basic-addon1"><i
-              class="fas fa-calendar-alt"></i></span>
+      <div class="d-flex gap-3 mt-3 ">
+        <div class=" flex-fill mr-3">
+          <div class="input-group mb-3" style="height: 100%;">
+            <div class="input-group-prepend">
+              <span class="input-group-text btn btn-primary text-white" id="basic-addon1"><i
+                  class="fas fa-calendar-alt"></i></span>
+            </div>
+            <input type="text" class="form-control" id="start_date" placeholder="Start Date" readonly
+              style="height: 100%;" />
+          </div>
         </div>
-        <input type="text" class="form-control" id="start_date" placeholder="Start Date" readonly
-          style="height: 100%;" />
+
+        <div class="flex-fill mr-3">
+          <div class="input-group mb-3" style="height: 100%;">
+            <div class="input-group-prepend">
+              <span class="input-group-text btn btn-primary text-white" id="basic-addon1"><i
+                  class="fas fa-calendar-alt"></i></span>
+            </div>
+            <input type="text" class="form-control" id="end_date" placeholder="End Date" readonly style="height: 100%;">
+          </div>
+        </div>
+        <button id="filter" class="btn mr-3 text-white" style="background-color: #a979a8;"
+          onmouseover="this.style.backgroundColor='#6c5576';"
+          onmouseout="this.style.backgroundColor='#a979a8';">Filter</button>
+        <button id="reset" class="btn btn-outline-secondary">Reset</button>
+      </div>
+
+      <div>
+      </div>
+      <div class="table-responsive mt-3">
+        <table class="table table-bordered" id="records" style="width:100%">
+          <thead>
+            <tr>
+              <th>Nama Pasien</th>
+              <th>Waktu Pendaftaran</th>
+              <th>Nomor Pendaftaran</th>
+              <th>Nama Dokter</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+        </table>
       </div>
     </div>
 
-    <div class="flex-fill mr-3">
-      <div class="input-group mb-3" style="height: 100%;">
-        <div class="input-group-prepend">
-          <span class="input-group-text btn btn-primary text-white" id="basic-addon1"><i
-              class="fas fa-calendar-alt"></i></span>
-        </div>
-        <input type="text" class="form-control" id="end_date" placeholder="End Date" readonly style="height: 100%;">
-      </div>
-    </div>
-    <button id="filter" class="btn mr-3 text-white" style="background-color: #a979a8;"
-      onmouseover="this.style.backgroundColor='#6c5576';"
-      onmouseout="this.style.backgroundColor='#a979a8';">Filter</button>
-    <button id="reset" class="btn btn-outline-secondary">Reset</button>
-  </div>
-
-  <div>
-  </div>
-  <div class="table-responsive mt-3">
-    <table class="table table-bordered" id="records" style="width:100%">
-      <thead>
-        <tr>
-          <th>Nama Pasien</th>
-          <th>Waktu Pendaftaran</th>
-          <th>Nomor Pendaftaran</th>
-          <th>Nama Dokter</th>
-          <th>Aksi</th>
-        </tr>
-      </thead>
-    </table>
-  </div>
-</div>
-
-<div id="jual">
-  <!-- <h1 class="mt-4">Tabel Penjualan <b class="text-success" style="font-size: 35px">(Bagi Yang Telah Melakukan
+    <div id="jual">
+      <!-- <h1 class="mt-4">Tabel Penjualan <b class="text-success" style="font-size: 35px">(Bagi Yang Telah Melakukan
       Pembayaran)</b></h1> -->
-  <div class="d-flex gap-3 mt-3 ">
-    <div class=" flex-fill mr-3">
-      <div class="input-group mb-3" style="height: 100%;">
-        <div class="input-group-prepend">
-          <span class="input-group-text btn btn-primary text-white" id="basic-addon1"><i
-              class="fas fa-calendar-alt"></i></span>
+      <div class="d-flex gap-3 mt-3 ">
+        <div class=" flex-fill mr-3">
+          <div class="input-group mb-3" style="height: 100%;">
+            <div class="input-group-prepend">
+              <span class="input-group-text btn btn-primary text-white" id="basic-addon1"><i
+                  class="fas fa-calendar-alt"></i></span>
+            </div>
+            <input type="text" class="form-control" id="start_date" placeholder="Start Date" readonly
+              style="height: 100%;" />
+          </div>
         </div>
-        <input type="text" class="form-control" id="start_date" placeholder="Start Date" readonly
-          style="height: 100%;" />
+
+        <div class="flex-fill mr-3">
+          <div class="input-group mb-3" style="height: 100%;">
+            <div class="input-group-prepend">
+              <span class="input-group-text btn btn-primary text-white" id="basic-addon1"><i
+                  class="fas fa-calendar-alt"></i></span>
+            </div>
+            <input type="text" class="form-control" id="end_date" placeholder="End Date" readonly style="height: 100%;">
+          </div>
+        </div>
+        <button id="filter" class="btn mr-3 text-white" style="background-color: #a979a8;"
+          onmouseover="this.style.backgroundColor='#6c5576';"
+          onmouseout="this.style.backgroundColor='#a979a8';">Filter</button>
+        <button id="reset" class="btn btn-outline-secondary">Reset</button>
+      </div>
+      <div class="table-responsive mt-3">
+        <table class="table table-bordered" id="penjualan" style="width:100%">
+          <thead>
+            <tr>
+              <th>ID Transaksi</th>
+              <th>Tanggal Penjualan</th>
+              <th>Total Harga</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+        </table>
       </div>
     </div>
+    <div class="mt-5" id="chart"></div>
+    @break
+    @default
 
-    <div class="flex-fill mr-3">
-      <div class="input-group mb-3" style="height: 100%;">
-        <div class="input-group-prepend">
-          <span class="input-group-text btn btn-primary text-white" id="basic-addon1"><i
-              class="fas fa-calendar-alt"></i></span>
-        </div>
-        <input type="text" class="form-control" id="end_date" placeholder="End Date" readonly style="height: 100%;">
-      </div>
-    </div>
-    <button id="filter" class="btn mr-3 text-white" style="background-color: #a979a8;"
-      onmouseover="this.style.backgroundColor='#6c5576';"
-      onmouseout="this.style.backgroundColor='#a979a8';">Filter</button>
-    <button id="reset" class="btn btn-outline-secondary">Reset</button>
+    @endswitch
   </div>
-  <div class="table-responsive mt-3">
-    <table class="table table-bordered" id="penjualan" style="width:100%">
-      <thead>
-        <tr>
-          <th>ID Transaksi</th>
-          <th>Tanggal Penjualan</th>
-          <th>Total Harga</th>
-          <th>Aksi</th>
-        </tr>
-      </thead>
-    </table>
-  </div>
-</div>
-<div class="mt-5" id="chart"></div>
-@break
-@default
-
-@endswitch
-</div>
 
 </div>
 @endsection
@@ -352,7 +369,8 @@ function fetch(start_date, end_date) {
           {
             "data": 'button',
             "render": function(data, type, row, meta) {
-              return '<a href="resep/' + row.id_resep + '" class="btn btn-primary text-center">Detail</a>'
+              return '<a href="resep/' + row.id_resep +
+                '" class="btn btn-primary text-center">Detail</a>'
             }
           }
         ]
