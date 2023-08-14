@@ -29,42 +29,42 @@
   </li>
   <li class="nav-item {{ Request::is('dokter*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('dokter.index') }}">
-      <i class="fas fa-fw fa-people-arrows"></i>
+      <i class="fas fa-fw fa-stethoscope"></i>
       <span>dokter</span></a>
   </li>
   <li class="nav-item {{ Request::is('admin*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('admin.index') }}">
-      <i class="fas fa-fw fa-people-arrows"></i>
+      <i class="fas fa-fw fa-user-nurse"></i>
       <span>petugas</span></a>
   </li>
   <li class="nav-item {{ Request::is('tindakan*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('tindakan.index') }}">
-      <i class="fas fa-fw fa-people-arrows"></i>
+      <i class="fas fa-fw fa-bong"></i>
       <span>Tindakan</span></a>
   </li>
   <li class="nav-item {{ Request::is('klinik*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('klinik.index') }}">
-      <i class="fas fa-fw fa-people-arrows"></i>
+      <i class="fas fa-fw fa-file-medical"></i>
       <span>Data Klinik</span></a>
   </li>
   <li class="nav-item {{ Request::is('apoteker*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('apoteker.index') }}">
-      <i class="fas fa-fw fa-people-arrows"></i>
+      <i class="fas fa-fw fa-hospital"></i>
       <span>apoteker</span></a>
   </li>
   <li class="nav-item {{ Request::is('obat*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('obat.index') }}">
-      <i class="fas fa-fw fa-people-arrows"></i>
+      <i class="fas fa-fw fa-pills"></i>
       <span>obat</span></a>
   </li>
   <li class="nav-item {{ Request::is('pendaftaran*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('pendaftaran.all') }}">
-      <i class="fas fa-fw fa-people-arrows"></i>
+      <i class="fas fa-fw fa-wheelchair"></i>
       <span>pendaftaran</span></a>
   </li>
   <li class="nav-item {{ Request::is('jenis*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('jenis.index') }}">
-      <i class="fas fa-fw fa-people-arrows"></i>
+      <i class="fas fa-fw fa-mortar-pestle"></i>
       <span>Jenis Obat</span></a>
   </li>
   <li class="nav-item {{ Request::is('pasien*') ? 'active' : '' }}">
@@ -74,22 +74,22 @@
   </li>
   <li class="nav-item {{ Request::is('kategori*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('kategori.index') }}">
-      <i class="fas fa-fw fa-people-arrows"></i>
+      <i class="fas fa-fw fa-tablets"></i>
       <span>Kategori Obat</span></a>
   </li>
   <li class="nav-item {{ Request::is('penjualan*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('penjualan.index') }}">
-      <i class="fas fa-fw fa-people-arrows"></i>
+      <i class="fas fa-fw fa-receipt"></i>
       <span>Penjualan Obat</span></a>
   </li>
   <li class="nav-item {{ Request::is('pembayaran*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('pembayaran.all') }}">
-      <i class="fas fa-fw fa-people-arrows"></i>
+      <i class="fas fa-fw fa-pager"></i>
       <span>Riwayat Pemeriksaan</span></a>
   </li>
   <li class="nav-item {{ Request::is('live*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('live') }}">
-      <i class="fas fa-fw fa-people-arrows"></i>
+      <i class="fas fa-fw fa-eye"></i>
       <span>Live Antrian</span></a>
   </li>
   @break

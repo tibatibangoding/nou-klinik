@@ -5,16 +5,38 @@ dokter
 @endsection
 
 @section('content')
-<!-- Page Heading -->
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">dokter</h1>
-  <a href="{{ route('dokter.create') }}" class="btn btn-primary">Tambah Data</a>
-</div>
 
-<!-- Content Row -->
-<div class="container">
+<head>
+  <style>
+  .btn-custom {
+    color: #ffffff;
+    background-color: #a979a8;
+  }
+
+  .btn-custom:hover,
+  .btn-custom:focus,
+  .btn-custom:active,
+  .btn-custom.active,
+  .open .dropdown-toggle.btn-custom {
+    color: #ffffff;
+    background-color: #6c5576;
+  }
+  </style>
+</head>
+<!-- Page Heading -->
+<div class="" style="width: 100%;">
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">dokter</h1>
+    <a href="{{ route('dokter.create') }}" class="btn text-white" style="background-color: #a979a8;"
+      onmouseover="this.style.backgroundColor='#6c5576';" onmouseout="this.style.backgroundColor='#a979a8';">Tambah
+      Data</a>
+  </div>
+
+  <!-- Content Row -->
+  <!-- <div class="container"> -->
   <div class="table-responsive">
-    <table class="table table-bordered" id="dokter" style="width:100%">
+    <table class="table table-bordered  p-2 rounded" id="dokter"
+      style="width: 100%; background-color: #fff; border: none;">
       <thead>
         <tr>
           <th>Nama Dokter</th>
@@ -61,9 +83,9 @@ function fetch(start_date, end_date) {
           {
             "data": 'button',
             "render": function(data, type, row, meta) {
-              return '<a href="dokter/' + row.id + '/edit" class="btn btn-primary text-center">Edit</a>' +
+              return '<a href="dokter/' + row.id + '/edit" class="btn btn-custom text-center">Edit</a>' +
                 '<form action="dokter/' + row.id +
-                '" method="POST" class="d-inline">@csrf @method("DELETE") <button class="btn btn-danger"> Hapus </button></form>'
+                '" method="POST" class="d-inline">@csrf @method("DELETE") <button class="btn btn-outline-secondary"> Hapus </button></form>'
             }
           }
         ]

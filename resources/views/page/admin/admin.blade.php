@@ -12,7 +12,7 @@ Dashboard
 
 <!-- Content Row -->
 <div class="row">
-  <div class="container">
+  <div class="" style="width: 100%;">
     @switch(Auth::user()->roles->pluck('name')[0])
     @case('dokter')
     <div class="col-xl-3 col-md-4 mb-4">
@@ -85,6 +85,7 @@ Dashboard
   </table>
 </div>
 @break
+
 @case('apoteker')
 <div class="col-xl-3 col-md-4 mb-4">
   <div class="card border-left-warning shadow h-100 py-2">
@@ -158,6 +159,7 @@ Dashboard
 </div>
 <div class="mt-5" id="chart"></div>
 @break
+
 @case('kasir')
 <div id="chart"></div>
 <div class="table-responsive">
@@ -181,78 +183,119 @@ Dashboard
   </table>
 </div>
 @break
+
 @case('admin')
-<h1>Tabel Pendaftaran <b class="text-success" style="font-size: 35px">(Bagi Yang Telah Melakukan Pembayaran)</b></h1>
-<div class="col-md-6 mt-3">
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text btn btn-primary text-white" id="basic-addon1"><i
-          class="fas fa-calendar-alt"></i></span>
+
+<head>
+  <style>
+  .menu-buttons .btn.active {
+    background-color: #8b89c3;
+    border-radius: 0%;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    /* Active color */
+    color: #fff;
+  }
+
+  .menu-buttons {
+    border-bottom: 1px solid #8b89c3;
+    border-radius: 0%;
+    outline: none;
+  }
+  </style>
+</head>
+<div class="menu-buttons mb-5">
+  <div id="showPendaftaran" class="btn  active">Tabel Pendaftaran</div>
+  <div id="showPenjualan" class="btn ">Tabel Penjualan</div>
+</div>
+<div id="daftar" class="">
+  <!-- <h1 class="mt-4">Tabel Pendaftaran <b class="text-success" style="font-size: 35px">(Bagi Yang Telah Melakukan
+      Pembayaran)</b></h1> -->
+  <div class="d-flex gap-3 mt-3 ">
+    <div class=" flex-fill mr-3">
+      <div class="input-group mb-3" style="height: 100%;">
+        <div class="input-group-prepend">
+          <span class="input-group-text btn btn-primary text-white" id="basic-addon1"><i
+              class="fas fa-calendar-alt"></i></span>
+        </div>
+        <input type="text" class="form-control" id="start_date" placeholder="Start Date" readonly
+          style="height: 100%;" />
+      </div>
     </div>
-    <input type="text" class="form-control" id="start_date" placeholder="Start Date" readonly>
+
+    <div class="flex-fill mr-3">
+      <div class="input-group mb-3" style="height: 100%;">
+        <div class="input-group-prepend">
+          <span class="input-group-text btn btn-primary text-white" id="basic-addon1"><i
+              class="fas fa-calendar-alt"></i></span>
+        </div>
+        <input type="text" class="form-control" id="end_date" placeholder="End Date" readonly style="height: 100%;">
+      </div>
+    </div>
+    <button id="filter" class="btn mr-3 text-white" style="background-color: #a979a8;"
+      onmouseover="this.style.backgroundColor='#6c5576';"
+      onmouseout="this.style.backgroundColor='#a979a8';">Filter</button>
+    <button id="reset" class="btn btn-outline-secondary">Reset</button>
+  </div>
+
+  <div>
+  </div>
+  <div class="table-responsive mt-3">
+    <table class="table table-bordered" id="records" style="width:100%">
+      <thead>
+        <tr>
+          <th>Nama Pasien</th>
+          <th>Waktu Pendaftaran</th>
+          <th>Nomor Pendaftaran</th>
+          <th>Nama Dokter</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+    </table>
   </div>
 </div>
-<div class="col-md-6">
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text btn btn-primary text-white" id="basic-addon1"><i
-          class="fas fa-calendar-alt"></i></span>
+
+<div id="jual">
+  <!-- <h1 class="mt-4">Tabel Penjualan <b class="text-success" style="font-size: 35px">(Bagi Yang Telah Melakukan
+      Pembayaran)</b></h1> -->
+  <div class="d-flex gap-3 mt-3 ">
+    <div class=" flex-fill mr-3">
+      <div class="input-group mb-3" style="height: 100%;">
+        <div class="input-group-prepend">
+          <span class="input-group-text btn btn-primary text-white" id="basic-addon1"><i
+              class="fas fa-calendar-alt"></i></span>
+        </div>
+        <input type="text" class="form-control" id="start_date" placeholder="Start Date" readonly
+          style="height: 100%;" />
+      </div>
     </div>
-    <input type="text" class="form-control" id="end_date" placeholder="End Date" readonly>
-  </div>
-</div>
-<div>
-  <button id="filter" class="btn btn-primary">Filter</button>
-  <button id="reset" class="btn btn-warning">Reset</button>
-</div>
-<div class="table-responsive mt-3">
-  <table class="table table-bordered" id="records" style="width:100%">
-    <thead>
-      <tr>
-        <th>Nama Pasien</th>
-        <th>Waktu Pendaftaran</th>
-        <th>Nomor Pendaftaran</th>
-        <th>Nama Dokter</th>
-        <th>Aksi</th>
-      </tr>
-    </thead>
-  </table>
-</div>
-<h1 class="mt-4">Tabel Penjualan <b class="text-success" style="font-size: 35px">(Bagi Yang Telah Melakukan
-    Pembayaran)</b></h1>
-<div class="col-md-6 mt-4">
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text btn btn-primary text-white" id="basic-addon1"><i
-          class="fas fa-calendar-alt"></i></span>
+
+    <div class="flex-fill mr-3">
+      <div class="input-group mb-3" style="height: 100%;">
+        <div class="input-group-prepend">
+          <span class="input-group-text btn btn-primary text-white" id="basic-addon1"><i
+              class="fas fa-calendar-alt"></i></span>
+        </div>
+        <input type="text" class="form-control" id="end_date" placeholder="End Date" readonly style="height: 100%;">
+      </div>
     </div>
-    <input type="text" class="form-control" id="start_date_penjualan" placeholder="Start Date" readonly>
+    <button id="filter" class="btn mr-3 text-white" style="background-color: #a979a8;"
+      onmouseover="this.style.backgroundColor='#6c5576';"
+      onmouseout="this.style.backgroundColor='#a979a8';">Filter</button>
+    <button id="reset" class="btn btn-outline-secondary">Reset</button>
   </div>
-</div>
-<div class="col-md-6">
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text btn btn-primary text-white" id="basic-addon1"><i
-          class="fas fa-calendar-alt"></i></span>
-    </div>
-    <input type="text" class="form-control" id="end_date_penjualan" placeholder="End Date" readonly>
+  <div class="table-responsive mt-3">
+    <table class="table table-bordered" id="penjualan" style="width:100%">
+      <thead>
+        <tr>
+          <th>ID Transaksi</th>
+          <th>Tanggal Penjualan</th>
+          <th>Total Harga</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+    </table>
   </div>
-</div>
-<div>
-  <button id="filter_penjualan" class="btn btn-primary">Filter</button>
-  <button id="reset_penjualan" class="btn btn-warning">Reset</button>
-</div>
-<div class="table-responsive mt-3">
-  <table class="table table-bordered" id="penjualan" style="width:100%">
-    <thead>
-      <tr>
-        <th>ID Transaksi</th>
-        <th>Tanggal Penjualan</th>
-        <th>Total Harga</th>
-        <th>Aksi</th>
-      </tr>
-    </thead>
-  </table>
 </div>
 <div class="mt-5" id="chart"></div>
 @break
@@ -338,6 +381,7 @@ $(document).on("click", "#reset", function(e) {
   fetch();
 });
 </script>
+
 @elseif(Auth::user()->roles->pluck('name')[0] == 'admin')
 <script>
 $(function() {
@@ -411,6 +455,34 @@ $(document).on("click", "#reset", function(e) {
   $("#end_date").val('');
   $('#records').DataTable().destroy();
   fetch();
+});
+//button menu
+$(document).ready(function() {
+  // Hide both tables initially
+  $('#daftar').show();
+  $('#jual').hide();
+
+  // Show Pendaftaran table on button click
+  $('#showPendaftaran').click(function() {
+    $('#jual').hide();
+    $('#daftar').show();
+
+    // Toggle active class
+    $(this).addClass('active');
+    $('#showPenjualan').removeClass('active');
+  });
+
+  // Show Penjualan table on button click
+  $('#showPenjualan').click(function() {
+    $('#daftar').hide();
+    $('#jual').show();
+
+    // Toggle active class
+    $(this).addClass('active');
+    $('#showPendaftaran').removeClass('active');
+  });
+
+  // Rest of your existing scripts...
 });
 </script>
 @else
@@ -566,7 +638,7 @@ $(document).on("click", "#reset_penjualan", function(e) {
   fetchPenjualan();
 });
 </script>
-<script src="https://code.highcharts.com/highcharts.js"></script>
+<!-- <script src="https://code.highcharts.com/highcharts.js"></script>
 <script>
 var seriesData = [];
 
@@ -636,7 +708,5 @@ Highcharts.chart('chart', {
     }]
   }
 });
-</script>
-
-
+</script> -->
 @endpush

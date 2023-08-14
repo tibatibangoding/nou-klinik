@@ -7,7 +7,7 @@ admin
 @section('content')
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">Tambah admin</h1>
+  <!-- <h1 class="h3 mb-0 text-gray-800">Tambah admin</h1> -->
 
 </div>
 
@@ -18,8 +18,7 @@ admin
       <div class="card full-height">
         <div class="card-header">
           <div class="card-head-row">
-            <div class="card-title">Tambah admin</div>
-            <a href="{{ route('admin.index') }}" class="btn btn-primary btn-sm ml-auto">Back</a>
+            <h1 class="card-title">Tambah admin</h1>
           </div>
         </div>
 
@@ -39,6 +38,10 @@ admin
               <input type="text" class="form-control" name="nama">
             </div>
             <div class="form-group">
-              <button class="btn btn-primary btn-sm" type="submit">Save</button>
+              <button class="btn mr-3 text-white" style="background-color: #a979a8;"
+                onmouseover="this.style.backgroundColor='#6c5576';" onmouseout="this.style.backgroundColor='#a979a8';"
+                type="submit">Save</button>
+              <a href="{{ route('admin.index') }}" class="btn btn-outline-secondary ml-auto">Cancel</a>
+
             </div>
             @endsection
