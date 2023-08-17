@@ -7,7 +7,7 @@ resep
 @section('content')
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">resep</h1>
+  <h1 class="h3 mb-0 text-gray-800">Resep</h1>
   {{-- <a href="{{ route('resep.create', $pendaftaran->id) }}" class="btn btn-primary">Tambah Data</a> --}}
 
   {{-- <a href="{{ route('resep.create') }}" class="btn btn-primary">Tambah Data</a>s --}}

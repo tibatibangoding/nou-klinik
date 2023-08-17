@@ -6,7 +6,8 @@ Penjualan
 
 @section('content')
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">penjualan <b class="text-success" style="font-size: 25px">(Bagi Yang Telah Melakukan
+  <h1 class="h3 mb-0 text-gray-800">Penjualan <b class="" style="font-size: 25px; color:#a979a8">(Bagi Yang Telah
+      Melakukan
       Pembayaran)</b></h1>
 
   <a href="{{ route('penjualan.create') }}" class="btn text-white" style="background-color: #a979a8;"

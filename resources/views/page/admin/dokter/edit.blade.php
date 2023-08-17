@@ -32,7 +32,7 @@ edit dokter
       <div class="card full-height">
         <div class="card-header">
           <div class="card-head-row">
-            <h1 class="card-title">Edit dokter</h1>
+            <h1 class="card-title">Edit Dokter</h1>
           </div>
         </div>
 

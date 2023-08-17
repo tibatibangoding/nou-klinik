@@ -219,6 +219,20 @@ Dashboard
         border-radius: 0%;
         outline: none;
       }
+
+      .btn-custom {
+        color: #ffffff;
+        background-color: #a979a8;
+      }
+
+      .btn-custom:hover,
+      .btn-custom:focus,
+      .btn-custom:active,
+      .btn-custom.active,
+      .open .dropdown-toggle.btn-custom {
+        color: #ffffff;
+        background-color: #6c5576;
+      }
       </style>
     </head>
     <div class="menu-buttons mb-5">
@@ -445,7 +459,7 @@ function fetch(start_date, end_date) {
           {
             "data": 'button',
             "render": function(data, type, row, meta) {
-              return '<a href="pasien/' + row.id + '" class="btn btn-primary text-center">Detail</a>'
+              return '<a href="pasien/' + row.id + '" class="btn btn-custom text-center">Detail</a>'
             }
           }
         ]
@@ -625,7 +639,7 @@ function fetchPenjualan(start_date, end_date) {
             "data": 'button',
             "render": function(data, type, row, meta) {
               return '<th class="text-center">' +
-                '<a href="penjualan/' + row.id + '" class="btn btn-primary text-center">Detail</a>' +
+                '<a href="penjualan/' + row.id + '" class="btn btn-custom text-center">Detail</a>' +
                 '</th>'
             }
           }

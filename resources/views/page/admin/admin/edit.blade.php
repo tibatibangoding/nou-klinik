@@ -18,7 +18,7 @@ edit admin
       <div class="card full-height">
         <div class="card-header">
           <div class="card-head-row">
-            <h1 class="card-title">Edit admin</h1>
+            <h1 class="card-title">Edit Admin</h1>
           </div>
         </div>
 

@@ -27,7 +27,7 @@ obat
 </head>
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">obat</h1>
+  <h1 class="h3 mb-0 text-gray-800">Obat</h1>
   <a href="{{ route('obat.create') }}" class="btn text-white" style="background-color: #a979a8;"
     onmouseover="this.style.backgroundColor='#6c5576';" onmouseout="this.style.backgroundColor='#a979a8';">Tambah
     Data</a>

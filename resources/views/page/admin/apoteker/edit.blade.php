@@ -18,7 +18,7 @@ edit apoteker
       <div class="card full-height">
         <div class="card-header">
           <div class="card-head-row">
-            <h1 class="card-title">Tambah apoteker</h1>
+            <h1 class="card-title">Edit Apoteker</h1>
             <!-- <a href="{{ route('apoteker.index') }}" class="btn btn-primary btn-sm ml-auto">Back</a> -->
           </div>
         </div>

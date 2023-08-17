@@ -25,7 +25,7 @@ poli
 </head>
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">Tambah poli</h1>
+  <!-- <h1 class="h3 mb-0 text-gray-800">Tambah poli</h1> -->
 </div>
 
 <!-- Content Row -->
@@ -35,7 +35,7 @@ poli
       <div class="card full-height">
         <div class="card-header">
           <div class="card-head-row">
-            <div class="card-title">Tambah poli</div>
+            <H1 class="card-title">Tambah Poli</H1>
           </div>
         </div>
 

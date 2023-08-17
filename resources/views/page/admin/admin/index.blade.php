@@ -26,7 +26,7 @@ admin
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">admin</h1>
+  <h1 class="h3 mb-0 text-gray-800">Admin</h1>
   <a href="{{ route('admin.create') }}" class="btn mr-3 text-white" style="background-color: #a979a8;"
     onmouseover="this.style.backgroundColor='#6c5576';" onmouseout="this.style.backgroundColor='#a979a8';">Tambah
     Data</a>

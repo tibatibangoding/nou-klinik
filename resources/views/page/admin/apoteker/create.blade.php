@@ -18,7 +18,7 @@ apoteker
       <div class="card full-height">
         <div class="card-header">
           <div class="card-head-row">
-            <h1 class="card-title">Tambah apoteker</h1>
+            <h1 class="card-title">Tambah Apoteker</h1>
           </div>
         </div>
 

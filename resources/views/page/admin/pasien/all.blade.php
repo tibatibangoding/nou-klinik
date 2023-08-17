@@ -5,9 +5,25 @@ pasien
 @endsection
 
 @section('content')
+<style>
+.btn-custom {
+  color: #ffffff;
+  background-color: #a979a8;
+}
+
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom:active,
+.btn-custom.active,
+.open .dropdown-toggle.btn-custom {
+  color: #ffffff;
+  background-color: #6c5576;
+}
+</style>
+</head>
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">pasien</h1>
+  <h1 class="h3 mb-0 text-gray-800">Pasien</h1>
 
 
   {{-- <a href="{{ route('pasien.create') }}" class="btn btn-primary">Tambah Data</a>s --}}
@@ -88,7 +104,7 @@ function fetch(start_date, end_date) {
             "data": 'button',
             "render": function(data, type, row, meta) {
               return '<a href="pasien/rekamMedis/' + row.id +
-                '" class="btn btn-primary text-center">Rekam Medis</a>'
+                '" class="btn btn-custom text-center">Rekam Medis</a>'
             }
           }
         ]

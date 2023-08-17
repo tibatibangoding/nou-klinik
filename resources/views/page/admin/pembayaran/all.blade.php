@@ -7,7 +7,8 @@ pembayaran
 @section('content')
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">pembayaran <b class="text-success" style="font-size: 25px">(Bagi Yang Telah
+  <h1 class="h3 mb-0 text-gray-800">Pembayaran <b class="" style="font-size: 25px; color:#a979a8">(Bagi Yang
+      Telah
       Melakukan Pembayaran)</b></h1>
 
 

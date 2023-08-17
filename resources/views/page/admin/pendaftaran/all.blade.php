@@ -5,12 +5,42 @@ pendaftaran
 @endsection
 
 @section('content')
+
+<head>
+  <style>
+  .btn-custom {
+    color: #ffffff;
+    background-color: #a979a8;
+  }
+
+  .btn-outline-custom {
+    border: 2px solid black;
+    background-color: transparent;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    border-color: #a979a8;
+    color: #a979a8;
+    border-radius: 4px;
+  }
+
+  .btn-custom:hover,
+  .btn-custom:focus,
+  .btn-custom:active,
+  .btn-custom.active,
+  .open .dropdown-toggle.btn-custom {
+    color: #ffffff;
+    background-color: #6c5576;
+  }
+  </style>
+</head>
+
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   @if (Auth::user()->roles->pluck('name')[0] == 'dokter')
   <h1 class="h3 mb-0 text-gray-800">daftar antrian</h1>
   @else
-  <h1 class="h3 mb-0 text-gray-800">pendaftaran</h1>
+  <h1 class="h3 mb-0 text-gray-800">Pendaftaran</h1>
   @endif
   @hasrole('admin')
   <a href="{{ route('pendaftaran.create') }}" class="btn text-white" style="background-color: #a979a8;"
@@ -116,13 +146,13 @@ function fetch(start_date, end_date) {
             "render": function(data, type, row, meta) {
               switch (row.status_periksa) {
                 case '1':
-                  return 'Selesai di periksa'
+                  return '<div class="btn btn-outline-custom">Selesai di periksa</div>'
                   break;
                 case '2':
-                  return 'Sedang di periksa'
+                  return '<div class="btn btn-outline-custom">Sedang di periksa</div>'
                   break;
                 case '3':
-                  return 'Menunggu antrian';
+                  return '<div class="btn btn-outline-custom">Menunggu antrian</div>';
                   break;
                 default:
                   break;
@@ -136,13 +166,13 @@ function fetch(start_date, end_date) {
                 switch (row.status_periksa) {
                   case '1':
                     return '<a href="pasien/' + row.id +
-                      '" class="btn btn-primary text-center">Detail</a>'
+                      '" class="btn btn-outline-custom text-center">Detail</a>'
                     break;
                   case '2':
-                    return 'Pasien sedang periksa'
+                    return '<div class="btn btn-outline-custom">Pasien sedang periksa</div>'
                     break;
                   case '3':
-                    return 'Pasien dalam antrian'
+                    return '<div class="btn btn-outline-custom">Pasien dalam antrian</div>'
                     break;
                   default:
                     break;
@@ -151,15 +181,15 @@ function fetch(start_date, end_date) {
                 switch (row.status_periksa) {
                   case '1':
                     return '<a href="pasien/' + row.id +
-                      '" class="btn btn-primary text-center">Detail</a>'
+                      '" class="btn btn-custom text-center">Detail</a>'
                     break;
                   case '2':
                     return '<a href="periksa/create/' + row.id +
-                      '" class="btn btn-success">Lanjutkan pemeriksaan pasien</a>'
+                      '" class="btn btn-custom">Lanjutkan pemeriksaan pasien</a>'
                     break;
                   case '3':
                     return '<a href="periksa/create/' + row.id +
-                      '" class="btn btn-success">Periksa Pasien</a>';
+                      '" class="btn btn-custom">Periksa Pasien</a>';
                     break;
                   default:
                     break;

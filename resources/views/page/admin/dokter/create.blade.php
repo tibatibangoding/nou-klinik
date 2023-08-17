@@ -25,7 +25,7 @@ dokter
 </head>
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">Tambah dokter</h1>
+  <!-- <h1 class="h3 mb-0 text-gray-800">Tambah dokter</h1> -->
 
 </div>
 
@@ -36,7 +36,7 @@ dokter
       <div class="card full-height">
         <div class="card-header">
           <div class="card-head-row">
-            <div class="card-title">Tambah dokter</div>
+            <H1 class="card-title">Tambah Dokter</H1>
           </div>
         </div>
 

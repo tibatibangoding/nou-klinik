@@ -25,17 +25,17 @@
   <li class="nav-item {{ Request::is('poli*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('poli.index') }}">
       <i class="fas fa-fw fa-vote-yea"></i>
-      <span>poli</span></a>
+      <span>Poli</span></a>
   </li>
   <li class="nav-item {{ Request::is('dokter*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('dokter.index') }}">
       <i class="fas fa-fw fa-stethoscope"></i>
-      <span>dokter</span></a>
+      <span>Dokter</span></a>
   </li>
   <li class="nav-item {{ Request::is('admin*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('admin.index') }}">
       <i class="fas fa-fw fa-user-nurse"></i>
-      <span>petugas</span></a>
+      <span>Petugas</span></a>
   </li>
   <li class="nav-item {{ Request::is('tindakan*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('tindakan.index') }}">
@@ -50,17 +50,17 @@
   <li class="nav-item {{ Request::is('apoteker*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('apoteker.index') }}">
       <i class="fas fa-fw fa-hospital"></i>
-      <span>apoteker</span></a>
+      <span>Apoteker</span></a>
   </li>
   <li class="nav-item {{ Request::is('obat*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('obat.index') }}">
       <i class="fas fa-fw fa-pills"></i>
-      <span>obat</span></a>
+      <span>Obat</span></a>
   </li>
   <li class="nav-item {{ Request::is('pendaftaran*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('pendaftaran.all') }}">
       <i class="fas fa-fw fa-wheelchair"></i>
-      <span>pendaftaran</span></a>
+      <span>Pendaftaran</span></a>
   </li>
   <li class="nav-item {{ Request::is('jenis*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('jenis.index') }}">
@@ -97,7 +97,7 @@
   <li class="nav-item {{ Request::is('pendaftaran*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('pendaftaran.all') }}">
       <i class="fas fa-fw fa-people-arrows"></i>
-      <span>pendaftaran</span></a>
+      <span>Pendaftaran</span></a>
   </li>
   <li class="nav-item {{ Request::is('pasien*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('pasien.all') }}">
@@ -109,12 +109,12 @@
   <li class="nav-item {{ Request::is('resep*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('resep.index') }}">
       <i class="fas fa-fw fa-people-arrows"></i>
-      <span>resep</span></a>
+      <span>Resep</span></a>
   </li>
   <li class="nav-item {{ Request::is('obat*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('obat.index') }}">
       <i class="fas fa-fw fa-people-arrows"></i>
-      <span>obat</span></a>
+      <span>Obat</span></a>
   </li>
   <li class="nav-item {{ Request::is('jenis*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('jenis.index') }}">
